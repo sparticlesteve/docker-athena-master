@@ -11,12 +11,11 @@ ENV CMAKEPATH /opt/sw/lcg/contrib/CMake/3.8.0/Linux-x86_64/
 WORKDIR /root
 
 RUN rpm --rebuilddb && yum clean all
-RUN yum -y install wget
-RUN yum -y install yum-plugin-ovl
-RUN yum -y insalll git
-RUN yum -y install svn
-RUN yum -y install redhat-lsb-core
-RUN yum -y install HEP_OSlibs_SL6
+RUN yum install -y yum-plugin-ovl
+RUN yum update -y
+RUN yum install -y wget git svn redhat-lsb-core
+RUN yum install -y redhat-lsb-core
+RUN yum install -y HEP_OSlibs_SL6
 #RUN yum -y install HEP_OSlibs_SL6 git svn wget redhat-lsb-core || true
 RUN wget https://cmake.org/files/v3.8/cmake-3.8.0-rc2.tar.gz && \
     tar xzvf cmake-3.8.0-rc2.tar.gz && cd cmake-3.8.0-rc2 && \
