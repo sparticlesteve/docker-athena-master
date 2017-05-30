@@ -11,13 +11,11 @@ ENV CMAKEPATH /opt/sw/lcg/contrib/CMake/3.8.0/Linux-x86_64/
 WORKDIR /root
 
 # Patch yum issue
-RUN rpm --rebuilddb && yum clean all
 RUN yum install -y yum-plugin-ovl
 RUN yum update -y
 
 # Install core system dependencies
 RUN yum install -y wget git svn redhat-lsb-core
-RUN yum install -y redhat-lsb-core
 
 # Install HEP common libraries
 RUN yum install -y HEP_OSlibs_SL6
