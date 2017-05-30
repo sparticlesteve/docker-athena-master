@@ -1,7 +1,7 @@
 # # 
 ## A fat container where AtlasOffline is installed and setup
 ##
-FROM cern/slc6-base
+FROM atlassw/slc6-hep
 MAINTAINER Steve Farrell "steven.farrell@cern.ch"
 
 USER root
