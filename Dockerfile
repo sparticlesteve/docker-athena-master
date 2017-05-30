@@ -44,8 +44,8 @@ RUN echo '"atlas" "lcg-voms2.cern.ch" "15001" "/DC=ch/DC=cern/OU=computers/CN=lc
 # Install ATLAS software
 WORKDIR /root
 ADD cmakeNightlyInstall.sh cmakeNightlyInstall.sh
-RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-25T2225 -d . Athena_22.0.0_x86_64-slc6-gcc62-opt
-#RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-21T2225 -d . AthenaExternals_22.0.0_x86_64-slc6-gcc62-opt
+RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-28T2225 -d . Athena_22.0.0_x86_64-slc6-gcc62-opt
+#RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-28T2225 -d . AthenaExternals_22.0.0_x86_64-slc6-gcc62-opt
 #ADD cmakeReleaseInstall.sh cmakeReleaseInstall.sh
 #RUN ./cmakeReleaseInstall.sh -d /opt -c /tmp/rpms AtlasOffline_21.0.9_x86_64-slc6-gcc49-opt
 #RUN ./cmakeReleaseInstall.sh -d /opt -c /tmp/rpms AtlasSetup || true 
