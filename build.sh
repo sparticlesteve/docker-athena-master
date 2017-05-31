@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t sfarrell/athena-master .
+docker build -t sfarrell/athsim-master .
