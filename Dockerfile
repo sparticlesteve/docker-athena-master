@@ -43,8 +43,13 @@ RUN echo '"atlas" "lcg-voms2.cern.ch" "15001" "/DC=ch/DC=cern/OU=computers/CN=lc
 
 # Install ATLAS software
 WORKDIR /root
+# RPM patch for Athena installation failure
+RUN wget http://atlas-software-dist-eos.web.cern.ch/atlas-software-dist-eos/RPMs/rpm/4.8.0_patch/rpm-libs-4.8.0-55.slc6.UNSUPPORTED.x86_64.rpm
+RUN rpm2cpio rpm-libs-4.8.0-55.slc6.UNSUPPORTED.x86_64.rpm | cpio -idmv
+ENV LD_LIBRARY_PATH=/root/usr/lib64:$LD_LIBRARY_PATH
 ADD cmakeNightlyInstall.sh cmakeNightlyInstall.sh
 RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-28T2225 -d . Athena_22.0.0_x86_64-slc6-gcc62-opt
+
 #RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-28T2225 -d . AthenaExternals_22.0.0_x86_64-slc6-gcc62-opt
 #ADD cmakeReleaseInstall.sh cmakeReleaseInstall.sh
 #RUN ./cmakeReleaseInstall.sh -d /opt -c /tmp/rpms AtlasOffline_21.0.9_x86_64-slc6-gcc49-opt
