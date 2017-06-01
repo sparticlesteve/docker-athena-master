@@ -27,6 +27,15 @@ RUN wget https://cmake.org/files/v3.8/cmake-3.8.0-rc2.tar.gz && \
     gmake && \
     make install
 
+# Install git from source
+RUN yum install -y autoconf curl-devel expat-devel gettext-devel \
+    openssl-devel perl-devel zlib-devel
+RUN curl https://www.kernel.org/pub/software/scm/git/git-2.13.0.tar.gz \
+    -o git-2.13.0.tar.gz && \
+    tar xzf git-2.13.0.tar.gz && cd git-2.13.0 && \
+    make configure && ./configure --prefix=/usr && \
+    make all install
+
 # Install voms client and add voms servers' info
 ADD egi-trustanchors /etc/yum.repos.d/egi-trustanchors.repo
 RUN yum -y install ca-policy-egi-core voms-clients-cpp
