@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t sfarrell/athena-externals .
+docker build -t sfarrell/athsim-externals .
