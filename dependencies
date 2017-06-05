@@ -1,9 +1,7 @@
-AthenaExternals_22.0.0_x86_64-slc6-gcc62-opt
 ATLAS_Geant4Data_geant4.10.1.patch03.atlasmt02
 ATLAS_ReleaseData_v20
 ATLAS_TwissFiles_v003
 dqm-common-01-02-00_x86_64-slc6-gcc62-opt
-GAUDI_22.0.0_x86_64-slc6-gcc62-opt
 LCG_88_AIDA_3.2.1_x86_64_slc6_gcc62_opt
 LCG_88_alpgen_2.1.4_x86_64_slc6_gcc62_opt
 LCG_88_CASTOR_2.1.13_6_x86_64_slc6_gcc62_opt

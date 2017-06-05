@@ -53,9 +53,10 @@ RUN echo '"atlas" "lcg-voms2.cern.ch" "15001" "/DC=ch/DC=cern/OU=computers/CN=lc
 # Install ATLAS software
 WORKDIR /root
 ADD cmakeNightlyInstall.sh cmakeNightlyInstall.sh
-ADD lcg_dependencies lcg_dependencies
-RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-28T2225 -d . \
-    $(cat lcg_dependencies)
+ADD dependencies dependencies
+RUN ./cmakeNightlyInstall.sh \
+    -r master/x86_64-slc6-gcc62-opt/2017-05-28T2225 -d . \
+    $(cat dependencies)
 #AthenaExternals_22.0.0_x86_64-slc6-gcc62-opt
 
 #RUN ./cmakeNightlyInstall.sh -r master/x86_64-slc6-gcc62-opt/2017-05-28T2225 -d . Athena_22.0.0_x86_64-slc6-gcc62-opt
