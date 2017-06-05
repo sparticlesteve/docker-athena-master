@@ -69,4 +69,17 @@ RUN mkdir -p $CMAKEPATH && \
     cd $CMAKEPATH && \
     ln -s /usr/local/bin/ bin
 
+# Add the ssh config files
+ADD sshconfig /root/.ssh/config
+ADD sshknownhosts /root/.ssh/known_hosts
+RUN chmod 600 /root/.ssh/config && chmod 644 /root/.ssh/known_hosts
+
+# (Hopefully) final dependencies.
+# TODO: re-organize this dockerfile.
+RUN yum install -y yaml-cpp yaml-cpp-devel libyaml ctags texinfo
+
+# Additional environment settings for building
+ENV LCG_RELEASE_BASE /root/sw/lcg/releases
+ENV TDAQ_RELEASE_BASE /root
+
 CMD ["bash"]
