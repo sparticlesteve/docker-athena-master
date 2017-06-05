@@ -1,0 +1,5 @@
+Host svn.cern.ch
+  User sfarrell
+  GSSAPITrustDNS yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
