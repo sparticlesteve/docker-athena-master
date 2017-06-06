@@ -20,8 +20,9 @@ RUN yum install -y which ctags libuuid libuuid-devel texinfo
 
 # Install cmake from source
 RUN wget https://cmake.org/files/v3.8/cmake-3.8.0-rc2.tar.gz && \
-    tar xzvf cmake-3.8.0-rc2.tar.gz && cd cmake-3.8.0-rc2 && \
-    ./bootstrap && make -j install && rm ../cmake-3.8.0-rc2.tar.gz
+    tar xzvf cmake-3.8.0-rc2.tar.gz && \
+    cd cmake-3.8.0-rc2 && ./bootstrap && make -j install && \
+    cd .. && rm cmake-3.8.0-rc2.tar.gz && rm -rf cmake-3.8.0-rc2
 
 # Set the path to cmake
 RUN mkdir -p $CMAKEPATH && \
@@ -32,10 +33,9 @@ RUN mkdir -p $CMAKEPATH && \
 RUN yum install -y autoconf curl-devel expat-devel gettext-devel \
     openssl-devel perl-devel zlib-devel
 RUN curl https://www.kernel.org/pub/software/scm/git/git-2.13.0.tar.gz \
-    -o git-2.13.0.tar.gz && \
-    tar xzf git-2.13.0.tar.gz && cd git-2.13.0 && \
-    make configure && ./configure --prefix=/usr && \
-    make -j all install && rm ../git-2.13.0.tar.gz
+    -o git-2.13.0.tar.gz && tar xzf git-2.13.0.tar.gz && cd git-2.13.0 && \
+    make configure && ./configure --prefix=/usr &&  make -j all install && \
+    cd .. && rm git-2.13.0.tar.gz && rm -rf git-2.13.0
 
 # Install voms client and add voms servers' info
 ADD egi-trustanchors /etc/yum.repos.d/egi-trustanchors.repo
