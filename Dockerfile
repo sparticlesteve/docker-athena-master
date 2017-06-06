@@ -15,7 +15,7 @@ RUN yum install -y yum-plugin-ovl
 
 # Install system dependencies
 RUN yum install -y wget svn redhat-lsb-core
-RUN yum install -y gcc krb5-devel bzip2 gcc-c++
+RUN yum install -y gcc krb5-devel bzip2 gcc-c++ libaio
 RUN yum install -y which ctags libuuid libuuid-devel texinfo
 
 # Install cmake from source
