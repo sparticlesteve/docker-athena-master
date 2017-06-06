@@ -70,7 +70,7 @@ ADD sshknownhosts /root/.ssh/known_hosts
 RUN chmod 600 /root/.ssh/config && chmod 644 /root/.ssh/known_hosts
 
 # Additional environment settings for building
-ENV LCG_RELEASE_BASE /root/sw/lcg/releases
-ENV TDAQ_RELEASE_BASE /root
+ENV LCG_RELEASE_BASE /opt/sw/lcg/releases
+ENV TDAQ_RELEASE_BASE /opt
 
 CMD ["bash"]
