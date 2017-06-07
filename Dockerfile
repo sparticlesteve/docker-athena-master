@@ -1,5 +1,7 @@
-# # 
-## A fat container where AtlasOffline is installed and setup
+## 
+## A "fat" container where external dependencies for AthSimulation and
+## AthSimulationExternals are installed, allowing for AthSimulation full builds
+## without CVMFS or AFS.
 ##
 FROM cern/slc6-base
 MAINTAINER Steve Farrell "steven.farrell@cern.ch"
